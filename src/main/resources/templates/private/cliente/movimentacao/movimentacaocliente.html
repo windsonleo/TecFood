@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:replace="fragmentos/head :: head-css">
+	
+	
+	</head>
+		
+		<title>Movimentacao Cliente</title>
+
+<body id="mimin" class="dashboard">
+			
+
+	   			  <nav th:replace="fragmentos/top-nav :: nav">
+				
+				</nav>
+				
+					<div th:replace="fragmentos/nav :: nav-side"> </div>
+				
+				
+	<!-- 				mensagens do sistema  -->
+	
+	            <div id="content">
+
+		                 		                  <div class="panel box-shadow-none content-header">
+                  <div class="panel-body">
+                    <div class="col-md-12">
+                        <h3 class="animated fadeInLeft">Movimentacao Usuario</h3>
+                        <p class="animated fadeInDown">
+                          Usuarios <span class="fa-angle-right fa"></span> Todos
+                        </p>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-md-12 top-20 padding-0">
+                <div class="col-md-12">
+                  <div class="panel">
+                    <div class="panel-heading"><h3>Usuarios</h3></div>
+                    <div class="panel-body">
+                      <div class="responsive-table">
+                      <table id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">
+                      <thead>
+                      <tr>
+                                            <th class="hide">Id</th>
+                                            <th >Nome</th>
+                                            <th >Email</th>
+                                             <th >CPF</th>
+                                             <th >Data Nascimento</th>
+                                            <th >Ativo</th>
+<!--                                             <th >Resultado</th> -->
+                                            
+                                            
+                                  <div sec:authorize="hasRole('ROLE_ADM')">
+                                   
+                                   <th >OPERACOES</th>
+                                  
+                                  </div>
+                                            
+<!--                                             <th >2º Premio</th> -->
+<!--                                             <th >3º Premio</th> -->
+<!--                                             <th >4º Premio</th> -->
+<!--                                             <th >5º Premio</th> -->
+
+		
+										</tr>
+                                        </thead>
+                                        
+                                        <tbody>
+                                            <tr th:each="cliente: ${clienteList}">
+                                                <td th:text="${cliente.id}" class="hide">id</td>
+                                                  <td th:text="${cliente.nome}">nome</td>
+                                                   <td th:text="${cliente.email}">email</td>
+                                                    <td th:text="${cliente.cpf}">cpf</td>
+                                                  <td th:text="${#dates.format(cliente.datanascimento,'dd-MM-yyyy')}">Data</td>
+                                                  
+		                                            <td th:text="${cliente.ativo}">ativo</td>
+<!-- 		                                             <td th:text="${jogobicho.banca}">Banca</td> -->
+		                                            
+<!-- 		                                            <td th:text="${jogobicho}" >Resultado</td> -->
+		                                          
+		                                       
+							              <div sec:authorize="hasRole('ROLE_ADM')" >
+	                                              <td class="td-actions">
+	                                              <div >
+                                                        <a  rel="tooltip" title="Informacoes" class="btn btn-muted btn-simple btn-xs" th:href="@{/cliente/informacao(id=${cliente.id})}">
+                                    						<i class="material-icons">info</i>
+			                       						</a>
+	                       						 
+                                                        <a  rel="tooltip" title="Editar" class="btn btn-muted btn-simple btn-xs" th:href="@{/cliente/editar(id=${cliente.id})}">
+                                    						<i class="material-icons">mode edit</i>
+			                       						</a>
+	                       								                                            
+		                                            																									
+                                                        <a  rel="tooltip" title="Excluir" class="btn btn-danger btn-simple btn-xs" th:href="@{/cliente/delete(id=${cliente.id})}">
+                                    						<i class="material-icons">close</i>
+			                       						</a>
+	                       						</div>
+	                       						 	</td>	
+	                       						 
+					                            </div>
+		                                            
+		                                         
+		                                            
+		                                            
+<!-- 		                                            <td th:text="${jogobicho.segundopremio}" >2º Premio</td> -->
+<!-- 		                                            <td th:text="${jogobicho.terceiropremio}" > 3º Premio</td> -->
+<!-- 		                                            <td th:text="${jogobicho.quartopremio}" >4º Premio </td> -->
+<!-- 		                                            <td th:text="${jogobicho.quintopremio}" >5º Premio</td> -->
+		                      
+		 
+
+		
+                                        
+                                            </tr>
+                                           
+                                           
+                                      
+                                        </tbody>
+                                    </table>
+                                </div>
+		</div>
+		</div>
+		</div>
+		</div>
+		
+
+
+             <div th:replace="fragmentos/footer :: footer">
+            
+            </div>
+            
+            
+
+</div>
+
+
+
+<div th:replace="fragmentos/footer :: script" style="display:none;"></div>
+			
+</body>
+			
+			
+</html>
+

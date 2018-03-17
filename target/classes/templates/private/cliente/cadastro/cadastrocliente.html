@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:replace="fragmentos/head :: head-css">
+	
+	
+	</head>
+		
+		<title>Cadastro Cliente</title>
+
+			<body id="mimin" class="dashboard">
+			
+
+	   			  <nav th:replace="fragmentos/top-nav :: nav">
+				
+				</nav>
+				
+					<div th:replace="fragmentos/nav :: nav-side"> </div>
+				
+				
+	<!-- 				mensagens do sistema  -->
+	
+	            <div id="content">
+		 
+		 
+		 <!-- 				mensagens do sistema  -->
+				
+		<div class="row-fluid" th:if="${sucesso}">
+					
+			<div class="alert alert-success">
+				<div class="container-fluid">
+					<div class="alert-icon">
+						<i class="material-icons">check</i>
+					</div>
+					<button type="button" class="close" data-dismiss="alert"
+						aria-label="Close">
+						<span aria-hidden="true"><i class="material-icons">clear</i></span>
+					</button>
+					<b>Mensagem:</b> <span th:utext="${sucesso}">
+					
+					
+					
+					</span>
+					
+				
+						<span class="btn btn-sm btn-warning"><a th:href="@{/cliente/cadastro}"><i></i>Novo</a></span>
+					    <span class="btn btn-sm btn-warning"><a th:href="@{/cliente/editar(id=${cliente.id})}"><i></i>Editar</a></span>
+				
+				</div>
+				
+				
+			</div>
+					
+					
+					
+			</div>
+					
+			<div class="row-fluid" th:if="${erro}">
+					
+			<div class="alert alert-danger">
+				<div class="container-fluid">
+					<div class="alert-icon">
+						<i class="material-icons">error</i>
+					</div>
+					<button type="button" class="close" data-dismiss="alert"
+						aria-label="Close">
+						<span aria-hidden="true"><i class="material-icons">clear</i></span>
+					</button>
+					<b>Mensagem:</b> <span th:utext="${erro}"></span>
+				
+						<span class="btn btn-sm btn-warning"><a th:href="@{/cliente/cadastro}"><i></i>Novo</a></span>
+					    <span class="btn btn-sm btn-warning"><a th:href="@{/cliente/editar(id=${cliente.id})}"><i></i>Editar</a></span>
+			
+				</div>
+				
+				
+			</div>
+					
+					
+					
+			</div>
+			
+		<div class="panel box-shadow-none content-header">
+                  <div class="panel-body">
+                    <div class="col-md-12">
+                        <h3 class="animated fadeInLeft">Cadastro Cliente</h3>
+                        <p class="animated fadeInDown">
+                          Cliente <span class="fa-angle-right fa"></span> Cadastro
+                        </p>
+                    </div>
+                  </div>
+              </div>
+				
+<!-- fim das mensagens -->
+
+
+<!-- inicio do conteudo  -->
+
+ <div class="col-md-12 panel">
+		 <div class="col-md-8">
+                      <div class="panel form-element-padding">
+                        <div class="panel-heading">
+                         <h4>Informe os Dados do Cliente</h4>
+                        </div>
+                         <div class="panel-body" style="padding-bottom:30px;">
+		 
+			 
+				 <form class="" method="post"
+                             th:action="@{/cliente/add}">
+
+<div class="checkbox">
+                <label>
+				<input id="ativo" name="optionsCheckboxes"  type="checkbox" th:checked="${cliente.ativo}" class="checkbox"/>Ativo?
+				</label>
+              </div>
+
+						<div class="form-group ">
+                                <label class="control-label">Id</label>
+                              
+                                    <input id="id" class="form-control" name="id" type="text" th:value="${cliente.id}"
+                                           placeholder="" readonly="readonly"/> 
+                               
+                           
+                            </div>
+                            
+                            <div class="form-group label-floating ">
+                            <div class="control-group">
+                                <label class="control-label">Nome</label>
+                                <div class="controls">
+                                    <input id="nome" class="form-control" name="nome" type="text" th:value="${cliente.nome}"
+                                           placeholder=""> </input>
+                                </div>
+                            </div>
+                            </div>
+                            
+                            
+                            
+                             <div class="form-group label-floating ">
+                            <div class="control-group">
+                                <label class="control-label">Email</label>
+                                <div class="controls">
+                                    <input id="email" class="form-control" name="email" type="text" th:value="${cliente.email}"
+                                           placeholder=""> </input>
+                                </div>
+                            </div>
+                            </div>
+                            
+                           <div class="form-group label-floating ">
+                            <div class="control-group">
+                                <label class="control-label">Telefone</label>
+                                <div class="controls">
+                                    <input id="telefone" class="form-control" name="telefone" type="text" th:value="${cliente.telefone}"
+                                           placeholder=""> </input>
+                                </div>
+                            </div>
+                            </div>
+                            
+                        <div class="form-group label-floating ">
+                            <div class="control-group">
+                                <label class="control-label">CPF</label>
+                                <div class="controls">
+                                    <input id="cpf" class="form-control" name="cpf" type="text" th:value="${cliente.cpf}"
+                                           placeholder=""> </input>
+                                </div>
+                            </div>
+                            </div>
+                            
+                            <div class="form-group label-floating ">
+                            <div class="control-group">
+                                <label class="control-label">RG</label>
+                                <div class="controls">
+                                    <input id="rg" class="form-control" name="rg" type="text" th:value="${cliente.rg}"
+                                           placeholder=""> </input>
+                                </div>
+                            </div>
+                            </div>
+                            
+                                                        
+                            <div class="form-group label-floating ">
+                            <div class="control-group">
+                                <label class="control-label">Data Nascimento</label>
+                                <div class="controls">
+                                    <input id="datanascimento" class="form-control" name="datanascimento" type="text" th:value="${cliente.datanascimento}"
+                                           placeholder=""> </input>
+                                </div>
+                            </div>
+                            </div>
+                            
+                            
+							
+							<div class="form-group label-floating ">
+                            <div class="control-group">
+                                <label class="control-label">Genero</label>
+                                <div class="controls">
+
+                                    <select id="genero" name="genero" class="form-control">
+                                        <optgroup label="Escolha seu Genero">
+
+                                            <option th:value="${cliente.genero}" th:selected="selected"
+                                            th:utext="${cliente.genero}">
+                                            
+                                            
+                                            </option>
+
+                                                
+                                             	<option th:each="genero: ${genero}" th:value="${genero}" th:utext="${genero}"> genero </option>
+					           				      	
+				           				   		
+
+
+                                        </optgroup>
+                                    </select>
+
+
+                                </div>
+                            </div>
+                            </div>
+                            
+                           <div class="form-group label-floating ">
+                            <div class="control-group">
+                                <label class="control-label">Foto</label>
+                                <div class="controls">
+                                    <input id="foto" class="form-control" name="foto" type="text" th:value="${cliente.foto}"
+                                           placeholder=""> </input>
+                                </div>
+                            </div>
+                            </div>
+                            
+                            
+                            <div class="form-actions">
+                                <input type="submit" th:value="${acao}" class="btn btn-success"> </input>
+                            </div>
+                        </form>
+						
+<!-- 						</div> -->
+                       
+
+
+				
+				
+				<div th:replace="fragmentos/footer :: script" style="display:none;"></div>
+			
+			
+			</div>
+			
+			</div>
+			
+			</div>
+			</div>
+			</div>
+			
+			</body>
+			
+				
+	
+
+</html>
