@@ -146,8 +146,8 @@
                                         </div>
                                       </div>
                                       <div class="panel-body text-center">
-                                        <h1>51181,320</h1>
-                                        <p>Usuarios Active</p>
+                                        <h1 th:text="${#lists.size(clientes)}">51181,320</h1>
+                                        <p>Clientes Active</p>
                                         <hr/>
                                       </div>
                                     </div>
@@ -165,12 +165,34 @@
                                         </div>
                                       </div>
                                       <div class="panel-body text-center">
-                                        <h1>51181,320</h1>
+                                        <h1 th:text="${#lists.size(ordens)}">51181,320</h1>
                                         <p>Novos Pedidos</p>
                                         <hr/>
                                       </div>
                                     </div>
                                 </div>
+                                
+                                
+                                <div class="col-md-6">
+                                    <div class="panel box-v1">
+                                      <div class="panel-heading bg-white border-none">
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-left padding-0">
+                                          <h4 class="text-left">Produtos</h4>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                           <h4>
+                                           <span class="fa-diamond fa icons icon text-right"></span>
+                                           </h4>
+                                        </div>
+                                      </div>
+                                      <div class="panel-body text-center">
+                                        <h1 th:text="${#lists.size(produtos)}">51181,320</h1>
+                                        <p>Produtos Ativo</p>
+                                        <hr/>
+                                      </div>
+                                    </div>
+                                </div>
+                                
                             </div>
 <!--                             <div class="col-md-12"> -->
 <!--                                 <div class="panel box-v4"> -->
@@ -208,7 +230,7 @@
                                     <div class="col-md-12 padding-0 text-center">
                                       <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
                                           <h3>2.000</h3>
-                                          <p>Encontros</p>
+                                          <p>Pedidos</p>
                                       </div>
                                       <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
                                           <h3>2.232</h3>

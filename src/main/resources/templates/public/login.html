@@ -11,11 +11,12 @@
 
         <form class="form-signin"  method="post" th:object="${usuario}" th:action="@{/login}" role="form">
           <div class="panel periodic-login">
-              <span class="atomic-number">69</span>
+              <span class="atomic-number"></span>
               <div class="panel-body text-center">
-                  <h1 class="atomic-symbol">TFood</h1>
-                  <p class="atomic-mass">69.123</p>
-                  <p class="element-name">TecFood</p>
+                  <img alt="" th:src="@{/img/domm.png}"/>
+                  <br></br>
+<!--                   <p class="atomic-mass">69.123</p> -->
+<!--                   <p class="element-name">TecFood</p> -->
 
                   <i class="icons icon-arrow-down"></i>
                   <div class="form-group form-animate-text" style="margin-top:40px !important;">
@@ -31,7 +32,7 @@
                   <label class="pull-left">
                   <input type="checkbox" class="icheck pull-left" name="checkbox1"/> Remember me
                   </label>
-                  <input type="submit" class="btn col-md-12" value="SignIn"/>
+                  <input type="submit" class="btn col-md-12" value="Entrar"/>
               </div>
                 <div class="text-center" style="padding:5px;">
                     <a th:href="@{/esquecisenha}">Esqueci a Senha</a>

@@ -19,11 +19,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.teccsoluction.tecfood.entidade.Categoria;
+import com.teccsoluction.tecfood.entidade.Cliente;
 import com.teccsoluction.tecfood.entidade.Empresa;
+import com.teccsoluction.tecfood.entidade.Ordem;
 import com.teccsoluction.tecfood.entidade.Produto;
 import com.teccsoluction.tecfood.entidade.Usuario;
 import com.teccsoluction.tecfood.servico.CategoriaServicoImpl;
+import com.teccsoluction.tecfood.servico.ClienteServicoImpl;
 import com.teccsoluction.tecfood.servico.EmpresaServicoImpl;
+import com.teccsoluction.tecfood.servico.OrdemServicoImpl;
 import com.teccsoluction.tecfood.servico.ProdutoServicoImpl;
 import com.teccsoluction.tecfood.servico.UsuarioServicoImpl;
 
@@ -41,6 +45,12 @@ public class HomeController {
 	@Autowired
 	private ProdutoServicoImpl produtoService = new ProdutoServicoImpl();
 	
+	@Autowired
+	private OrdemServicoImpl ordemService = new OrdemServicoImpl();
+	
+	@Autowired
+	private ClienteServicoImpl clienteService = new ClienteServicoImpl();
+	
     @Autowired 
     private JavaMailSender mailSender;
 	   
@@ -56,9 +66,15 @@ public class HomeController {
 
 	        List<Categoria> categorias = categoriaService.findAll();
 	        
+	        List<Ordem> ordens = ordemService.findAll();
+	        
+	        List<Cliente> clientes = clienteService.findAll();
+	        
 
 	        model.addAttribute("categorias", categorias);
 	        model.addAttribute("produtos", produtos);
+	        model.addAttribute("clientes", clientes);
+	        model.addAttribute("ordens", ordens);
 
 
 	    }
