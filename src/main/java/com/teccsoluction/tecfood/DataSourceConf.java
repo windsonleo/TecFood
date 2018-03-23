@@ -26,13 +26,23 @@ public class DataSourceConf {
 	@Bean
     public DataSource dataSource() {
            
+        //local
+//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//        dataSource.setDriverClassName("org.postgresql.Driver");
+//        dataSource.setUrl("jdbc:postgresql://localhost:5432/tecfood");
+//        dataSource.setUsername("postgres");        
+//        dataSource.setPassword("");
+
+        //heroku
         
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/tecfood");
-        dataSource.setUsername("postgres");        
-        dataSource.setPassword("");
-
+        dataSource.setUrl("jdbc:postgresql://ec2-54-163-246-193.compute-1.amazonaws.com:5432/d5dg3r3uusbcfg");
+        dataSource.setUsername("rltcqguerzfjim");        
+        dataSource.setPassword("8d651adc0bb0f9cff6db74a3f57d1d3bb6400a3134d877fe1a1c4aae65f1da7b");
+        
+        
+        
     	return dataSource;
     }
 	
